@@ -1,0 +1,267 @@
+@import "./variables";
+@import "./animations";
+@import "./globals";
+
+.center {
+  text-align: center;
+  justify-content: center;
+}
+
+.left {
+  text-align: left;
+  justify-content: start;
+}
+
+.modal__btn {
+  width: 7rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-top: 2rem;
+  cursor: pointer;
+
+  &--loading {
+    width: 9rem;
+    gap: 1rem;
+    position: relative;
+    padding-left: 1rem;
+    justify-content: flex-start;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0rem;
+      width: 2rem;
+      height: 2rem;
+      border: 2px solid var(--white-color);
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+    }
+  }
+
+  &--cancel {
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+  }
+
+  &--delete {
+    background-color: map-get($accent-colors, delete);
+    color: var(--white-color);
+  }
+
+  &--edit {
+    background-color: map-get($accent-colors, edit);
+    color: var(--white-color);
+  }
+
+  &--add {
+    background-color: map-get($accent-colors, success);
+    color: var(--white-color);
+  }
+
+  &--addItem {
+    background-color: var(--primary-color);
+    width: 9rem;
+  }
+}
+
+.sweet-alert__container {
+  z-index: 1000000000000;
+}
+
+.sweet-alert__modal {
+  border-radius: 1rem;
+  font-family: "Lato", sans-serif;
+  z-index: 100000000000000000;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+}
+
+.sweet-alert__text[id=swal2-html-container] {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+.sweet-alert__text--align-left[id=swal2-html-container] {
+  text-align: left;
+}
+
+.sweet-alert__confirm-button.swal2-styled {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  box-shadow: none;
+  transition: none;
+  outline: none;
+}
+
+.recharts-responsive-container.Chart_pieChart__chart__1AhVD {
+  @include breakpoint(sm) {
+    transform: scale(0.87);
+  }
+  @media (max-width: 500px) {
+      transform: scale(0.77);
+  }
+  @media (max-width: 450px) {
+      transform: scale(0.67);
+  }
+  @media (max-width: 400px) {
+      transform: scale(0.57);
+  }
+  @media (max-width: 350px) {
+    .pie-chart {
+      transform: scale(0.47);
+    }
+  }
+}
+
+.recharts-surface {
+  overflow: visible;
+}
+
+.sweet-alert__confirm-button.swal2-styled:focus,
+.sweet-alert__confirm-button.swal2-styled:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  transform: scale(1.1);
+  outline: none;
+  box-shadow: none;
+  border: 1px solid var(--text-color);
+}
+
+.add-btn {
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+  width: 14rem;
+  height: 4rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  &:hover,
+  &:focus {
+    transform: scale(0.95);
+  }
+}
+
+.loader-spin {
+  position: relative;
+}
+
+.loader-spin::before {
+  content: "";
+  width: 4.8rem;
+  height: 4.8rem;
+  border: 5px solid var(--supplement-color);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+.loader-wink {
+  animation: winking 2s linear alternate infinite;
+}
+
+.table-fallback,
+.table-no-data {
+  width: 100%;
+  height: 50rem;
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.table-no-data {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--supplement-color);
+}
+
+.info {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &--primary {
+    background-color: var(--primary-color);
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+
+  &__btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    border-radius: 1rem;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    & > * {
+      font-size: 2rem;
+    }
+
+    &--edit {
+      background-color: map-get($accent-colors, edit);
+    }
+
+    &--delete {
+      background-color: map-get($accent-colors, delete);
+    }
+
+    &--details {
+      background-color: map-get($accent-colors, info);
+    }
+  }
+}
+
+.sweetAlert__paragraph {
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-family: "Lato", sans-serif;
+}
+
+.MuiAccordion-root.Mui-expanded {
+  z-index: 10;
+}

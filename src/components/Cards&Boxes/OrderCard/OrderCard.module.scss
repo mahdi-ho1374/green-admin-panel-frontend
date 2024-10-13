@@ -1,0 +1,96 @@
+@import "../../../sass-styles/variables";
+
+.orderCard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 28rem;
+  max-width: 40rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  &__top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 15rem;
+  }
+
+  &__profile {
+    width: 100%;
+    height: 100%;
+    background-color: var(--tertiary-color);
+    color: var(--white-color);
+    font-weight: 700;
+    font-size: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn--edit {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+  }
+
+  &__btn--details {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+  }
+
+  &__props {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    font-size: 1.6rem;
+    padding: 2rem 2rem;
+    background-color: var(--primary-color);
+  }
+
+  &__prop {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--card-text-color);
+    grid-area: span 1;
+
+    &:first-child {
+      grid-area: span 1 / span 2;
+    }
+
+    &--text {
+      grid-area: span 1 / span 2;
+    }
+  }
+
+  &__icon {
+    fill: var(--tertiary-color);
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__delivered-icon {
+    fill: map-get($accent-colors, success);
+  }
+
+  &__pending-icon {
+    fill: map-get($accent-colors, warning);
+  }
+
+  &__canceled-icon {
+    fill: map-get($accent-colors, delete);
+  }
+
+  &__prop :nth-child(2) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

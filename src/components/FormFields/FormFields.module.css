@@ -1,0 +1,482 @@
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 36em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+}
+
+.blur-body:not(#nav) {
+  filter: blur(2px);
+}
+
+.nonVisible-nav {
+  --sidebar-width: 0;
+}
+
+.wide-nav {
+  --sidebar-width: 17rem;
+}
+
+.narrow-nav {
+  --sidebar-width: 5rem;
+}
+
+.dark-mode {
+  --primary-color: #2d483b;
+  --secondary-color: #051f20;
+  --tertiary-color: #051f20;
+  --supplement-color: #f7fac3;
+  --text-color: #fafcda;
+  --white-color: #fafcda;
+  --modal-color: #051f20;
+  --tertiary-darker-color: #041617;
+  --scroll-thumb-active-color: #020e0e;
+  --scroll-track-color: #1e2b27;
+  --even-td-color: #04191a;
+  --card-text-color: #f7fac3;
+  --options-hover-color: #083436;
+}
+
+.light-mode {
+  --secondary-color: #dfdfd5;
+  --primary-color: #e5e4e2;
+  --tertiary-color: #023020;
+  --text-color: #023020;
+  --supplement-color: #662c27;
+  --white-color: #fff;
+  --modal-color: #e5e4e2;
+  --tertiary-darker-color: #26402a;
+  --scroll-thumb-active-color: #172719;
+  --scroll-track-color: #d2d0cc;
+  --even-td-color: #d9d7d5;
+  --card-text-color: #023020;
+  --options-hover-color: #023020;
+}
+
+:root {
+  scrollbar-width: thin !important;
+  scrollbar-color: transparent !important;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  background-image: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.light-mode body.background-mode {
+  background-image: url("/public/background-light.jpg");
+  background-size: cover;
+}
+
+html.dark-mode body.background-mode {
+  background-image: url("/public/background-dark.jpg");
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+a,
+a:visited,
+a:link,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+input:focus,
+input:hover,
+input:active {
+  border: none;
+  outline: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+#edit::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #a855f7;
+}
+
+#edit::-webkit-scrollbar-thumb:hover,
+#edit::-webkit-scrollbar-thumb:active {
+  background-color: #a34bf7;
+}
+
+#details::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #3b82f6;
+}
+
+#details::-webkit-scrollbar-thumb:hover,
+#details::-webkit-scrollbar-thumb:active {
+  background-color: #317cf6;
+}
+
+#delete::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #ef4444;
+}
+
+#delete::-webkit-scrollbar-thumb:hover,
+#delete::-webkit-scrollbar-thumb:active {
+  background-color: #ee3b3b;
+}
+
+#add::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #0a6f4d;
+}
+
+#add::-webkit-scrollbar-thumb:hover,
+#add::-webkit-scrollbar-thumb:active {
+  background-color: #096647;
+}
+
+#table::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: var(--tertiary-darker-color);
+}
+
+#table::-webkit-scrollbar-thumb:hover,
+#table::-webkit-scrollbar-thumb:active {
+  background-color: var(--scroll-thumb-active-color);
+}
+
+#table::-webkit-scrollbar-track {
+  background-image: linear-gradient(to bottom, var(--primary-color) 0, var(--primary-color) 4.5rem, var(--text-color) 4.5rem, var(--text-color) 4.6rem, var(--scroll-track-color) 4.6rem, var(--scroll-track-color) 100%);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+@media (max-width: 36em) {
+  #table::-webkit-scrollbar-track {
+    background-image: linear-gradient(to bottom, var(--primary-color) 0, var(--primary-color) 31.5rem, var(--text-color) 31.5rem, var(--text-color) 31.6rem, var(--scroll-track-color) 31.6rem, var(--scroll-track-color) 100%);
+  }
+}
+
+#nav::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+#nav {
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+}
+.form-control--horizontal {
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: start;
+  gap: 1.5rem;
+}
+.form-control--search {
+  z-index: 100;
+}
+.form-control__container {
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+}
+.form-control__container--expanded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-control__container:focus {
+  border: 1px solid var(--secondary-color);
+}
+.form-control__text-box {
+  border-radius: 1rem;
+  overflow-y: scroll;
+  padding: 2rem 2rem;
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  resize: none;
+}
+.form-control__date-picker {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+.form-control__input, .form-control__input:focus, .form-control__input:hover, .form-control__input:active, .form-control__select {
+  height: 4rem;
+  width: 100%;
+  padding: 0 2rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+}
+.form-control__checkbox-container {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+}
+.form-control__checkbox-container--horizontal {
+  width: 2rem;
+  height: 2rem;
+}
+.form-control__checkbox-container--disabled {
+  opacity: 0.5;
+}
+.form-control__checkbox {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+.form-control__select--reverse {
+  background-color: var(--tertiary-color);
+  color: var(--white-color);
+}
+.form-control__input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.form-control__input--expanded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-control__checkbox-container::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--text-color);
+  border-radius: 1rem;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.form-control__checkbox-container--checked::after {
+  content: "";
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.form-control__checkbox-icon {
+  position: absolute;
+  top: 0rem;
+  left: 0.7rem;
+  width: 112.5%;
+  height: 112.5%;
+  z-index: 1;
+  fill: var(--text-color);
+  stroke: var(--text-color);
+}
+.form-control__select {
+  padding: 0 1rem;
+  position: relative;
+}
+.form-control__select--disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.form-control__select--expanded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-control__select--expanded .form-control__icon {
+  transform: rotateZ(180);
+}
+.form-control__select-main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.form-control__content {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  width: 100%;
+  overflow: hidden;
+  z-index: 100;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+.form-control__option {
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  padding: 0.5rem 2rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.form-control__option--reverse {
+  color: var(--white-color);
+  background-color: var(--tertiary-color);
+}
+.form-control__option--disabled {
+  cursor: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.form-control__error {
+  font-size: 1.4rem;
+  color: #ef4444;
+  font-weight: 700;
+}
+.form-control__option:hover, .form-control__option:focus {
+  background-color: var(--tertiary-color);
+  color: var(--white-color);
+}
+.form-control__option--reverse:hover, .form-control__option--reverse:focus {
+  background-color: var(--tertiary-darker-color);
+}
+.form-control__select::selection {
+  background-color: transparent;
+}
+.form-control__option::selection {
+  background-color: transparent;
+}
+.form-control__select-main::selection {
+  background-color: transparent;
+}
+.form-control__input::selection {
+  background-color: var(--tertiary-color);
+  color: var(--text-color);
+}
+.form-control__option--disabled:hover, .form-control__option--disabled:focus {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  cursor: not-allowed;
+}
+.form-control__input--number {
+  text-align: center;
+  padding: 0;
+}
+.form-control__input--number::-webkit-inner-spin-button, .form-control__input--number::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.form-control__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+  border-radius: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--white-color);
+  background-color: var(--tertiary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.form-control__btn--disabled {
+  opacity: 0.5;
+}
+.form-control__btn--reverse {
+  background-color: var(--white-color);
+}
+.form-control__btn--select {
+  position: static;
+  transform: none;
+  z-index: 1;
+}
+.form-control__btn--search {
+  width: 3.5rem;
+  height: 3.5rem;
+  right: 0.5rem;
+}
+.form-control__btn--decrease {
+  left: 1rem;
+  z-index: 1;
+}
+.form-control__btn--increase {
+  right: 1rem;
+  z-index: 1;
+}
+.form-control__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.3s;
+}
+.form-control__icon--reverse {
+  color: var(--tertiary-color);
+}
+.form-control__icon--expanded {
+  transform: rotateZ(180deg);
+}
+.form-control__icon--search path {
+  fill: var(--tertiary-color);
+  stroke: var(--white-color);
+}
+.form-control__icon path:last-child {
+  stroke-width: 1.3px;
+}
+.form-control__label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.form-control__label--disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=FormFields.module.css.map */

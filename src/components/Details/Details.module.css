@@ -1,0 +1,113 @@
+.details {
+  max-width: 95vw;
+  max-height: 95vh;
+  min-width: 95vw;
+  border-radius: 1rem;
+  position: relative;
+  background-color: var(--modal-color);
+  color: var(--secondary-color);
+  padding: 2rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+}
+@media (max-width: 62em) {
+  .details {
+    max-width: 100vw;
+    max-height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    border-radius: 0;
+  }
+}
+.details__grid-system {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+@media (max-width: 62em) {
+  .details__grid-system {
+    grid-template-columns: 1fr;
+  }
+}
+.details__prop-value, .details__accordion[id=accordion] {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  border: 3px solid var(--secondary-color);
+}
+.details__prop-value {
+  display: flex;
+  gap: 2rem;
+  height: 5.5rem;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.details__accordion[id=accordion] {
+  grid-column: span 2;
+  cursor: pointer;
+  border-radius: 1rem !important;
+  min-height: 7rem;
+}
+@media (max-width: 62em) {
+  .details__accordion[id=accordion] {
+    grid-column: span 1;
+  }
+}
+.details__accordion-header[id=panel1a-header] {
+  width: 100%;
+  padding: 0;
+}
+.details__accordion-content[id=accordion-content] {
+  padding: 0;
+}
+.details__icon-container[id=icon-container] {
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 1rem;
+  border: 2px solid var(--modal-color);
+  background-color: var(--modal-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.details__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--text-color);
+}
+.details__close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--supplement-color);
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 62em) {
+  .details__close-icon {
+    display: inline-block;
+  }
+}
+.details__prop, .details__mega-prop[id=mega-prop], .details__big-prop[id=big-prop] {
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-family: "Lato", sans-serif;
+}
+.details__value {
+  font-size: 1.6rem;
+  font-family: "Lato", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*# sourceMappingURL=Details.module.css.map */

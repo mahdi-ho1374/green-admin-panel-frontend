@@ -1,0 +1,52 @@
+@import "../sass-styles/variables";
+@import "../sass-styles/mixins";
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  height: auto;
+
+  .scrollUp {
+    stroke: #0a6f4d;
+    fill: transparent;
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    z-index: 10000;
+
+    @include breakpoint(sm) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  .page {
+    width: 100%;
+    margin-left: var(--sidebar-width);
+
+    @include breakpoint(lg) {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .main {
+      padding: 3rem 2rem 3rem 3rem;
+
+      &--invisible-nav {
+        padding: 3rem 2rem;
+      }
+
+      @include breakpoint(lg) {
+        padding: 3rem 2rem;
+      }
+
+      @include breakpoint(sm) {
+        padding: 3rem 1rem;
+      }
+    }
+  }
+}

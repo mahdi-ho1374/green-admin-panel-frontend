@@ -1,0 +1,72 @@
+@import "../../sass-styles/variables";
+@import "../../sass-styles/globals";
+
+.error {
+  &__reload-icon {
+    color: var(--supplement-color);
+    width: 4rem;
+    height: 4rem;
+    stroke-width: 4px;
+    cursor: pointer;
+
+    &--page {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    gap: 1rem;
+    color: var(--supplement-color);
+  }
+
+  &__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__container {
+    max-width: 60rem;
+    height: auto;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    padding: 0 4rem 2rem 4rem;
+    position: relative
+  }
+
+  &__top {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+
+    @include breakpoint(sm) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  &__status {
+    font-size: 6rem;
+    color: map-get($accent-colors, error);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: map-get($accent-colors, error);
+  }
+
+  &__message {
+    color: var(--text-color);
+    font-size: 2rem;
+  }
+}

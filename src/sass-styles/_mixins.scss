@@ -1,0 +1,13 @@
+@import "./variables";
+
+@mixin breakpoint($value) {
+    $breakpoint-value: map-get($breakpoints,$value);
+    @if $breakpoint-value {
+        @media (#{$breakpoint-value}) {
+            @content;
+        }
+    }
+    @else {
+        @error "Breakpoint value is wrong"
+    }
+}

@@ -1,0 +1,48 @@
+@import "../../sass-styles/mixins";
+@import "../../sass-styles/globals";
+
+.generic {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__chart-fallback--mixed {
+    height: 55rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__chart-fallback--pie {
+    height: 80rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+  }
+
+  &--card {
+    gap: 3rem;
+
+    &-user {
+      gap: 8rem;
+    }
+  }
+
+  &
+
+  &__select {
+    width: 22.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include breakpoint(md) {
+      width: 15rem;
+    }
+  }
+
+}

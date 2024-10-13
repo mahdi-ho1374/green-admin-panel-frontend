@@ -1,0 +1,55 @@
+.chartProvider__chart-container {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 3rem;
+  width: 100%;
+}
+.chartProvider__chart-container--mixed {
+  height: max-content;
+}
+.chartProvider__mixed-container {
+  width: 100%;
+  height: max-content;
+}
+.chartProvider__pie-container {
+  height: 56rem;
+  width: 100%;
+}
+@media (max-width: 62em) {
+  .chartProvider__pie-container {
+    height: 75rem;
+  }
+}
+@media (max-width: 48em) {
+  .chartProvider__pie-container {
+    height: 85rem;
+  }
+}
+@media (max-width: 36em) {
+  .chartProvider__pie-container {
+    height: 90rem;
+  }
+}
+.chartProvider__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+.chartProvider__selects {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 17rem);
+  gap: 1rem;
+}
+.chartProvider__select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/*# sourceMappingURL=ChartProvider.module.css.map */

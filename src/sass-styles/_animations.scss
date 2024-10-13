@@ -1,0 +1,25 @@
+@import "./variables";
+
+@keyframes rotation {
+  0% {
+    transform: translate(-50% , -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50% , -50%) rotate(360deg);
+  }
+}
+
+@keyframes l3 {to{transform: rotate(1turn)}}
+
+@keyframes winking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}

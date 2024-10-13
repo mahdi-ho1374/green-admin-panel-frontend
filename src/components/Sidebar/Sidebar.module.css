@@ -1,0 +1,294 @@
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 36em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+}
+
+.blur-body:not(#nav) {
+  filter: blur(2px);
+}
+
+.nonVisible-nav {
+  --sidebar-width: 0;
+}
+
+.wide-nav {
+  --sidebar-width: 17rem;
+}
+
+.narrow-nav {
+  --sidebar-width: 5rem;
+}
+
+.dark-mode {
+  --primary-color: #2d483b;
+  --secondary-color: #051f20;
+  --tertiary-color: #051f20;
+  --supplement-color: #f7fac3;
+  --text-color: #fafcda;
+  --white-color: #fafcda;
+  --modal-color: #051f20;
+  --tertiary-darker-color: #041617;
+  --scroll-thumb-active-color: #020e0e;
+  --scroll-track-color: #1e2b27;
+  --even-td-color: #04191a;
+  --card-text-color: #f7fac3;
+  --options-hover-color: #083436;
+}
+
+.light-mode {
+  --secondary-color: #dfdfd5;
+  --primary-color: #e5e4e2;
+  --tertiary-color: #023020;
+  --text-color: #023020;
+  --supplement-color: #662c27;
+  --white-color: #fff;
+  --modal-color: #e5e4e2;
+  --tertiary-darker-color: #26402a;
+  --scroll-thumb-active-color: #172719;
+  --scroll-track-color: #d2d0cc;
+  --even-td-color: #d9d7d5;
+  --card-text-color: #023020;
+  --options-hover-color: #023020;
+}
+
+:root {
+  scrollbar-width: thin !important;
+  scrollbar-color: transparent !important;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  background-image: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.light-mode body.background-mode {
+  background-image: url("/public/background-light.jpg");
+  background-size: cover;
+}
+
+html.dark-mode body.background-mode {
+  background-image: url("/public/background-dark.jpg");
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+a,
+a:visited,
+a:link,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+input:focus,
+input:hover,
+input:active {
+  border: none;
+  outline: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+#edit::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #a855f7;
+}
+
+#edit::-webkit-scrollbar-thumb:hover,
+#edit::-webkit-scrollbar-thumb:active {
+  background-color: #a34bf7;
+}
+
+#details::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #3b82f6;
+}
+
+#details::-webkit-scrollbar-thumb:hover,
+#details::-webkit-scrollbar-thumb:active {
+  background-color: #317cf6;
+}
+
+#delete::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #ef4444;
+}
+
+#delete::-webkit-scrollbar-thumb:hover,
+#delete::-webkit-scrollbar-thumb:active {
+  background-color: #ee3b3b;
+}
+
+#add::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #0a6f4d;
+}
+
+#add::-webkit-scrollbar-thumb:hover,
+#add::-webkit-scrollbar-thumb:active {
+  background-color: #096647;
+}
+
+#table::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: var(--tertiary-darker-color);
+}
+
+#table::-webkit-scrollbar-thumb:hover,
+#table::-webkit-scrollbar-thumb:active {
+  background-color: var(--scroll-thumb-active-color);
+}
+
+#table::-webkit-scrollbar-track {
+  background-image: linear-gradient(to bottom, var(--primary-color) 0, var(--primary-color) 4.5rem, var(--text-color) 4.5rem, var(--text-color) 4.6rem, var(--scroll-track-color) 4.6rem, var(--scroll-track-color) 100%);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+@media (max-width: 36em) {
+  #table::-webkit-scrollbar-track {
+    background-image: linear-gradient(to bottom, var(--primary-color) 0, var(--primary-color) 31.5rem, var(--text-color) 31.5rem, var(--text-color) 31.6rem, var(--scroll-track-color) 31.6rem, var(--scroll-track-color) 100%);
+  }
+}
+
+#nav::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+#nav {
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.nav {
+  background-color: var(--primary-color);
+  width: var(--sidebar-width);
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4rem 0;
+  gap: 3rem;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media (max-width: 62em) {
+  .nav {
+    position: fixed;
+    z-index: 10000;
+  }
+}
+.nav__close-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 100000;
+  fill: var(--tertiary-color);
+  cursor: pointer;
+}
+.nav--narrow {
+  width: var(--sidebar-width);
+  justify-content: center;
+}
+.nav .logo {
+  width: 14rem;
+  border-radius: 50%;
+}
+.nav__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.nav__item {
+  width: 100%;
+}
+.nav__link {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 1.5rem 2rem;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  color: var(--text-color);
+}
+.nav__link--just-icon {
+  padding: 1.5rem 1rem;
+}
+.nav__link-dark::after {
+  content: "";
+  background-color: var(--secondary-color);
+  position: absolute;
+  z-index: -4;
+  right: -3rem;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 0;
+  transform: skew(-30deg);
+  transition: all 0.3s;
+}
+.nav__link-dark:hover::after, .nav__link-dark:focus::after, .nav__link-dark--active::after {
+  width: 250%;
+}
+.nav__link-light:hover, .nav__link-light:focus, .nav__link-light:active, .nav__link-light--active:active, .nav__link-light--active {
+  color: var(--supplement-color);
+}
+.nav__icon {
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+.nav__link-light:hover .nav__icon, .nav__link-light:focus .nav__icon, .nav__link-light--active .nav__icon {
+  color: var(--supplement-color);
+}
+
+/*# sourceMappingURL=Sidebar.module.css.map */

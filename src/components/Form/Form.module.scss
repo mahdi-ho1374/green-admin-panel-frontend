@@ -1,0 +1,139 @@
+@import "../../sass-styles/variables";
+
+.form {
+  background-color: var(--modal-color);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 7.1rem;
+  row-gap: 3rem;
+  column-gap: 3rem;
+  border-radius: 1rem;
+  max-height: 90vh;
+  padding: 2vw;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px rgba(74, 80, 70, 0.7), 0 0 10px rgba(25, 27, 23, 0.7);
+  min-width: 70vw;
+  max-width: 90vw;
+
+  &__select,
+  &__search-input,
+  &__mixed-input {
+    grid-column: span 6;
+  }
+
+  &__text-box {
+    grid-area: span 2 / span 6;
+  }
+
+  &__checkbox {
+    grid-column: span 2;
+  }
+
+  &[id="add"] {
+    .form__checkbox {
+      grid-column: span 4;
+    }
+  }
+
+  &__checkbox:nth-of-type(2) {
+    justify-self: start;
+  }
+
+  &__checkbox:nth-of-type(3) {
+    justify-self: center;
+  }
+
+  &__checkbox:nth-of-type(4) {
+    justify-self: end;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 3rem;
+    column-gap: 3rem;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  &__accordion[id="form__accordion"] {
+    grid-column: span 12;
+    border: 2px solid var(--text-color);
+    border-radius: 1rem !important;
+    background-color: var(--modal-color);
+    min-height: 4rem;
+    align-self: self-start;
+    position: relative;
+    z-index: 5;
+
+    &.form__accordion--expanded {
+      z-index: 10;
+    }
+  }
+
+  &__accordion--disabled {
+    cursor: not-allowed;
+  }
+
+  &__title[id="form__title"] {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  &__icon-container {
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid var(--text-color);
+    background-color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+  }
+
+  &__icon {
+    color: var(--modal-color);
+    width: 3rem;
+    height: 3rem;
+
+    path:last-child {
+      stroke-width: 1.7px;
+    }
+  }
+
+  &__btns {
+    grid-column: span 12;
+    justify-self: end;
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__btn-container {
+    grid-column: span 12;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    justify-self: end;
+    align-self: end;
+  }
+
+  &__mega-prop {
+    grid-column: span 12;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  &__big-prop {
+    grid-column: span 12;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  &__btn--submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

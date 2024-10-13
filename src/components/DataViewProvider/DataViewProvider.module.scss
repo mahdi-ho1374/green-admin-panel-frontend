@@ -1,0 +1,38 @@
+@import "../../sass-styles/mixins";
+@import "../../sass-styles/globals";
+
+.dataViewProvider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  &__no-result {
+    font-size: 1.8rem;
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+  }
+
+  &__cards {
+    display: flex;
+    gap: 2rem 2rem;
+    flex-wrap: wrap;
+
+    &--user {
+      gap: 8rem 2rem;
+    }
+  }
+
+  &__add-btn {
+    position: absolute;
+    top: 11.5rem;
+    right: 2rem;
+
+    @include breakpoint(md) {
+      top: 17.5rem;
+    }
+
+  }
+}

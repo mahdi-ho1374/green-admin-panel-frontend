@@ -1,0 +1,12 @@
+.recharts-layer.recharts-pie:nth-of-type(even) .recharts-layer.recharts-pie-labels .recharts-layer > text {
+  fill: var(--text-color);
+  stroke: var(--text-color);
+}
+.recharts-layer.recharts-pie:nth-of-type(even) .recharts-layer.recharts-pie-labels .recharts-layer > path {
+  stroke-width: 0.3rem;
+}
+.recharts-layer.recharts-pie:nth-of-type(even) .recharts-layer.recharts-pie-labels .recharts-layer > text {
+  font-size: 1.6rem;
+}
+
+/*# sourceMappingURL=Chart.css.map */

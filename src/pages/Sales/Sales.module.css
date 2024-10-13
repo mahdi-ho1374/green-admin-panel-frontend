@@ -1,0 +1,68 @@
+.sales {
+  display: grid;
+  width: 100%;
+  gap: 2rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: dense row;
+  grid-auto-rows: 15rem;
+  padding: 0.5rem;
+  height: 100%;
+}
+@media (max-width: 87.5em) {
+  .sales--narrow {
+    display: flex;
+    flex-direction: column;
+    grid-auto-rows: none;
+  }
+}
+@media (max-width: 75em) {
+  .sales {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.sales__chart {
+  min-width: 50rem;
+  grid-area: span 4/span 8;
+}
+@media (max-width: 87.5em) {
+  .sales__chart--narrow {
+    grid-column: span 12;
+  }
+}
+.sales__fallback {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sales__items {
+  grid-area: span 4/span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media (max-width: 87.5em) {
+  .sales__items--narrow {
+    flex-direction: row;
+  }
+}
+@media (max-width: 75em) {
+  .sales__items {
+    flex-direction: row;
+  }
+}
+@media (max-width: 48em) {
+  .sales__items {
+    flex-direction: column;
+  }
+}
+.sales__item {
+  min-width: 30rem;
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=Sales.module.css.map */

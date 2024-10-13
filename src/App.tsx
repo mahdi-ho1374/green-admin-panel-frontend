@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { FC } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import store from "./store/index";
+import "./App.css";
+import routes from "./routes";
+import { Provider } from "react-redux";
 
-function App() {
+
+const router = createBrowserRouter(routes);
+
+const App: FC = () => {
+
   return (
-    <div className="App">
-    </div>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
   );
-}
+};
 
 export default App;

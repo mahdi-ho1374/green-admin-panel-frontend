@@ -1,0 +1,81 @@
+.totalIndicator {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem 2rem 2rem;
+  position: relative;
+  min-height: 14rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.totalIndicator__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  display: flex;
+  gap: 0.5rem;
+}
+.totalIndicator__value {
+  color: var(--supplement-color);
+  font-size: 2rem;
+  width: max-content;
+  position: relative;
+}
+.totalIndicator__main-icon {
+  width: 5rem;
+  height: 5rem;
+  fill: var(--primary-color);
+}
+.totalIndicator__main-icon-container {
+  position: absolute;
+  top: 6rem;
+  right: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background-color: var(--tertiary-color);
+}
+.totalIndicator__trend {
+  display: flex;
+  gap: 0.5rem;
+}
+.totalIndicator__trend-icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--supplement-color);
+  position: absolute;
+  right: -5rem;
+}
+.totalIndicator__trend-icon--up {
+  bottom: -2rem;
+}
+.totalIndicator__trend-icon--down {
+  top: -1rem;
+}
+.totalIndicator__trend-percentage {
+  position: absolute;
+  right: -6rem;
+  font-size: 1.4rem;
+}
+.totalIndicator__trend-percentage--up {
+  bottom: 1rem;
+}
+.totalIndicator__trend-percentage--down {
+  top: 2rem;
+}
+.totalIndicator__trend-label {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+  position: absolute;
+  color: var(--text-color);
+  right: -11rem;
+  bottom: -1rem;
+}
+
+/*# sourceMappingURL=TotalIndicator.module.css.map */

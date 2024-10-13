@@ -1,0 +1,60 @@
+@import "../../sass-styles/variables";
+@import "../../sass-styles/mixins";
+.chartProvider {
+  &__chart-container {
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 3rem;
+    width: 100%;
+
+    &--mixed {
+      height: max-content;
+    }
+  }
+
+  &__mixed-container {
+    width: 100%;
+    height: max-content;
+  }
+
+  &__pie-container {
+    height: 56rem;
+    width: 100%;
+
+    @include breakpoint(lg) {
+      height: 75rem;
+    }
+
+    @include breakpoint(md) {
+      height: 85rem;
+    }
+
+    @include breakpoint(sm) {
+      height: 90rem;
+    }
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  &__selects {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 17rem);
+    gap: 1rem;
+  }
+
+  &__select {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

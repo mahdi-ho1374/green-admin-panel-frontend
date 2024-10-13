@@ -1,0 +1,119 @@
+@import "../../sass-styles/variables";
+@import "../../sass-styles/mixins";
+@import "../../sass-styles/globals";
+
+.nav {
+  background-color: var(--primary-color);
+  width: var(--sidebar-width);
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4rem 0;
+  gap: 3rem;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+ @include breakpoint(lg) {
+    position: fixed;
+    z-index: 10000;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 3rem;
+    height: 3rem;
+    z-index: 100000;
+    fill: var(--tertiary-color);
+    cursor: pointer;
+  }
+
+  &--narrow {
+    width: var(--sidebar-width);
+    justify-content: center;
+  }
+
+  .logo {
+    width: 14rem;
+    border-radius: 50%;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__link {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1.5rem 2rem;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    color: var(--text-color);
+
+    &--just-icon {
+      padding: 1.5rem 1rem;
+    }
+
+    &-dark::after {
+      content: "";
+      background-color: var(--secondary-color);
+      position: absolute;
+      z-index: -4;
+      right: -3rem;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      width: 0;
+      transform: skew(-30deg);
+      transition: all 0.3s;
+    }
+
+    &-dark:hover,
+    &-dark:focus,
+    &-dark--active {
+      &::after {
+        width: 250%;
+      }
+    }
+
+    &-light:hover,
+    &-light:focus,
+    &-light:active,
+    &-light--active:active,
+    &-light--active {
+      color: var(--supplement-color);
+    }
+
+  }
+
+  &__icon {
+    color: var(--text-color);
+    font-size: 1.8rem;
+  }
+
+  &__link-light:hover,
+  &__link-light:focus,
+  &__link-light--active {
+    .nav__icon {
+      color: var(--supplement-color);
+    }
+  }
+}

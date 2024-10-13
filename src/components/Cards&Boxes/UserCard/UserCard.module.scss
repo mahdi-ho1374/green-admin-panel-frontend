@@ -1,0 +1,83 @@
+@import "../../../sass-styles/variables";
+
+.userCard {
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  flex: 1;
+  min-width: 28rem;
+  max-width: 40rem;
+  border-radius: 1rem;
+  padding: 2rem 2rem;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  &__actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &__top {
+    position: relative;
+    margin-top: -7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--supplement-color);
+  }
+
+  &__title::after {
+    content: "";
+    position: absolute;
+    width: 95%;
+    bottom: -1rem;
+    left: 0;
+    height: 3px;
+    background-color: var(--supplement-color);
+  }
+
+  &__profile {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
+
+  &__props {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    font-size: 1.6rem;
+  }
+
+  &__prop {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--card-text-color);
+
+    &--column-1 {
+      grid-column: span 1;
+    }
+  }
+
+  &__prop :first-child {
+    fill: var(--tertiary-color);
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__prop :nth-child(2) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

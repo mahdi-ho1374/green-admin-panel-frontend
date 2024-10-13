@@ -1,0 +1,26 @@
+@import "../../sass-styles/variables";
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000000000;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(1.5px);
+}
+
+.modal[class$="edit"]::-webkit-scrollbar-thumb {
+  background-color: map-get($accent-colors, edit);
+}
+
+.modal[class$="edit"]::-webkit-scrollbar-thumb:hover, 
+.modal[class$="edit"]::-webkit-scrollbar-thumb:active {
+  background-color: darken(map-get($accent-colors, edit) , 20%);
+}
+
+

@@ -1,0 +1,295 @@
+@import "../../sass-styles/variables";
+@import "../../sass-styles/mixins";
+
+.table {
+  background-color: var(--primary-color);
+  table-layout: fixed;
+  border-spacing: 0;
+
+  @include breakpoint(sm) {
+    height: 100%;
+  }
+  
+  &__container {
+    &[id="table"] {
+      max-width: 100%;
+      overflow-x: auto;
+      height: 50rem;
+      scroll-behavior: smooth;
+      border-radius: 1rem;
+      overflow-y: auto;
+      background-color: var(--primary-color);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      @include breakpoint(sm) {
+        height: auto;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  &__btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    border-radius: 1rem;
+    cursor: pointer;
+
+    & > * {
+      font-size: 2rem;
+    }
+
+    &--edit {
+      background-color: map-get($accent-colors, edit);
+    }
+
+    &--delete {
+      background-color: map-get($accent-colors, delete);
+    }
+
+    &--details {
+      background-color: map-get($accent-colors, info);
+    }
+  }
+
+  thead {
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: 4.7rem;
+    background-color: var(--primary-color);
+
+    @include breakpoint(sm) {
+      height: 31.7rem;
+    }
+
+    tr {
+      border-bottom: 2px solid var(--text-color);
+    }
+  }
+  tbody {
+    @include breakpoint(sm) {
+      height: 100%;
+    }
+  }
+
+  &__title {
+    position: relative;
+  }
+
+  &__dot-btn {
+    color: var(--supplement-color);
+    font-weight: 700;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 0.2rem;
+    right: -2rem;
+    opacity: 0;
+    transition: all 0.25s;
+  }
+
+  &__select {
+    width: 12rem;
+  }
+
+  &__options {
+    position: absolute;
+    top: 98%;
+    left: 105%;
+    font-weight: 700;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    z-index: 3;
+    width: max-content;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @include breakpoint(sm) {
+      top: 98%;
+      left: 5%;
+    }
+
+    &--right {
+      left: 105%;
+      right: auto;
+    }
+
+    &--left {
+      left: auto;
+      right: -1.5rem;
+    }
+
+    &--hidden {
+      display: none !important;
+    }
+
+    &--filter {
+      width: max-content;
+      padding: 3.5rem 1.25rem 0.5rem 2rem;
+      height: auto;
+      background-color: var(--secondary-color);
+      cursor: auto;
+      display: flex;
+      overflow: visible;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    &--lowHeight {
+      padding: 1rem 1.25rem 1rem 2rem;
+    }
+
+    &--date {
+      padding: 4.5rem 1.25rem 1rem 1rem;
+    }
+  }
+
+  &__filter-checkbox {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &__filter-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__filter-date {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-color);
+  }
+
+  &__option {
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    z-index: 1;
+
+    &--column {
+      cursor: auto;
+    }
+
+    &:hover {
+      color: var(--white-color);
+      background-color: var(--options-hover-color);
+    }
+
+    &--column:hover {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+  }
+
+  &__filter-btn {
+    font-size: 1.4rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    &--date {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+    }
+  }
+
+  thead,
+  tbody {
+    width: 100%;
+
+    tr {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      grid-auto-flow: column;
+
+      @include breakpoint(sm) {
+        &:nth-child(even) {
+          background-color: var(--even-td-color);
+        }
+        display: block;
+      }
+
+      th,
+      td {
+        padding: 0.8rem;
+        margin-top: 0;
+        cursor: auto;
+
+        @include breakpoint(sm) {
+          display: flex;
+          gap: 1rem;
+          justify-content: flex-start;
+        }
+      }
+
+      th {
+        color: var(--supplement-color);
+        font-size: 1.6rem;
+        font-weight: 700;
+        height: 4.5rem;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+      }
+
+      th,
+      th:hover,
+      th:focus,
+      th:target,
+      th:active {
+        cursor: pointer;
+      }
+
+      th:hover {
+        .table__dot-btn {
+          opacity: 1;
+        }
+      }
+
+      td {
+        font-size: 1.4rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @include breakpoint(sm) {
+          &::before {
+            content: attr(data-cell) ":";
+            text-transform: capitalize;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  tbody tr:hover,
+  tbody tr:focus {
+    background-color: var(--secondary-color);
+  }
+}

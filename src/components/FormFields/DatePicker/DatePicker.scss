@@ -1,0 +1,38 @@
+@import "../../../sass-styles/variables";
+
+.MuiPickersArrowSwitcher-root .MuiSvgIcon-root {
+  color: var(--text-color);
+  fill: var(--text-color);
+  width: 2rem;
+  height: 2rem;
+}
+
+.MuiPickersArrowSwitcher-root
+  .MuiButtonBase-root.MuiIconButton-root.Mui-disabled {
+  opacity: 0.5;
+}
+
+.MuiPickersYear-root .MuiPickersYear-yearButton.Mui-selected,
+.MuiPickersYear-root .MuiPickersYear-yearButton.Mui-selected:focus,
+.MuiPickersYear-root .MuiPickersYear-yearButton.Mui-selected:hover {
+  background-color: var(--tertiary-color);
+  color: var(--white-color);
+}
+
+.MuiDayCalendar-weekContainer .MuiButtonBase-root.Mui-selected,
+.MuiDayCalendar-weekContainer .MuiButtonBase-root.Mui-selected:focus,
+.MuiDayCalendar-weekContainer .MuiButtonBase-root.Mui-selected:hover {
+  background-color: var(--tertiary-color);
+  color: var(--white-color);
+}
+
+.MuiInputBase-root .MuiSvgIcon-root {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--text-color);
+}
+
+.date-picker--expanded {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}

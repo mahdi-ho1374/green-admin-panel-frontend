@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  height: auto;
+}
+.container .scrollUp {
+  stroke: #0a6f4d;
+  fill: transparent;
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  z-index: 10000;
+}
+@media (max-width: 36em) {
+  .container .scrollUp {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+.container .page {
+  width: 100%;
+  margin-left: var(--sidebar-width);
+}
+@media (max-width: 62em) {
+  .container .page {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.container .page .main {
+  padding: 3rem 2rem 3rem 3rem;
+}
+.container .page .main--invisible-nav {
+  padding: 3rem 2rem;
+}
+@media (max-width: 62em) {
+  .container .page .main {
+    padding: 3rem 2rem;
+  }
+}
+@media (max-width: 36em) {
+  .container .page .main {
+    padding: 3rem 1rem;
+  }
+}
+
+/*# sourceMappingURL=Index.module.css.map */

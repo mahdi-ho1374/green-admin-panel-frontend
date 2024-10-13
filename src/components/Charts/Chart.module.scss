@@ -1,0 +1,75 @@
+@import "../../sass-styles/variables";
+@import "../../sass-styles/mixins";
+
+.chart {
+  &__tooltip-wrapper {
+    border-radius: 1rem;
+    font-family: "Lato", sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+    border: none !important;
+  }
+  &__tooltip-label {
+    font-family: "Lato", sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  &--vertical {
+    transform: translateY(-85%) rotateZ(90deg);
+    transform-origin: left bottom;
+  }
+}
+
+.pieChart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  @include breakpoint(lg) {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  @include breakpoint(sm) {
+    justify-content: center;
+  }
+
+  &__chart {
+    width: 70% !important;
+    height: 100% !important;
+
+    @include breakpoint(lg) {
+      width: 100% !important;
+      height: 80% !important;
+    }
+  }
+
+  &__legend {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include breakpoint(lg) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+  }
+
+  &__legend-item {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__legend-icon {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+  }
+}

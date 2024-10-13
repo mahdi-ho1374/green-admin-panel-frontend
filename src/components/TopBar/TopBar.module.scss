@@ -1,0 +1,78 @@
+@import "../../sass-styles/variables";
+@import "../../sass-styles/mixins";
+
+.header {
+  position: sticky;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  top: 0;
+  right: 0;
+  padding: 1.5rem 3rem;
+  
+  @include breakpoint(lg) {
+    width: 100vw;
+    margin-left: 0;
+    padding: 1.5rem 2rem;
+  }
+
+  @include breakpoint(sm) {
+    padding: 1.5rem 1rem;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+  }
+
+  &--withBackground {
+    background-color: var(--secondary-color);
+  }
+
+  &__right {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+
+    @include breakpoint(md) {
+      gap: 1rem;
+    }
+
+    @include breakpoint(sm) {
+      gap: 0;
+    }
+  }
+
+  &__profile {
+    display: flex;
+
+    &-img {
+      width: 5.5rem;
+      border-radius: 50%;
+      color: var(--primary-color);
+    }
+  }
+
+  &__input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 25vw;
+    min-width: 25rem;
+  }
+}

@@ -1,0 +1,76 @@
+.commentCard {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 26rem;
+  max-width: 40rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.commentCard__top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15rem;
+}
+.commentCard__profile {
+  width: 100%;
+  height: 100%;
+  color: var(--white-color);
+  font-weight: 700;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tertiary-color);
+}
+.commentCard__props {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  font-size: 1.8rem;
+  padding: 2rem 2rem;
+  background-color: var(--primary-color);
+}
+.commentCard__prop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--card-text-color);
+  grid-column: span 1;
+}
+.commentCard__prop--center {
+  justify-self: center;
+}
+.commentCard__prop--end {
+  justify-self: end;
+}
+.commentCard__prop--column-3 {
+  grid-column: span 3;
+  gap: 0.5rem;
+}
+.commentCard__prop :nth-child(2) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.commentCard__icon {
+  fill: var(--tertiary-color);
+  height: 2rem;
+  width: 2rem;
+}
+.commentCard__icon--notReplied {
+  position: relative;
+}
+.commentCard__icon--notReplied::after {
+  content: "/";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--tertiary-color);
+}
+
+/*# sourceMappingURL=CommentCard.module.css.map */

@@ -1,0 +1,93 @@
+@import "../../../sass-styles/variables";
+
+.totalIndicator {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem 2rem 2rem;
+  position: relative;
+  min-height: 14rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  &__value {
+    color: var(--supplement-color);
+    font-size: 2rem;
+    width: max-content;
+    position: relative;
+  }
+
+  &__main-icon {
+    width: 5rem;
+    height: 5rem;
+    fill: var(--primary-color);
+
+    &-container {
+      position: absolute;
+      top: 6rem;
+      right: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      background-color: var(--tertiary-color);
+    }
+  }
+
+  &__trend {
+    display: flex;
+    gap: 0.5rem;
+
+    &-icon {
+      width: 4rem;
+      height: 4rem;
+      color: var(--supplement-color);
+      position: absolute;
+      right: -5rem;
+
+      &--up {
+        bottom: -2rem;
+      }
+
+      &--down {
+        top: -1rem;
+      }
+    }
+
+    &-percentage {
+      position: absolute;
+      right: -6rem;
+      font-size: 1.4rem;
+
+      &--up {
+        bottom: 1rem;
+      }
+
+      &--down {
+        top: 2rem;
+      }
+    }
+
+    &-label {
+      font-size: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      line-height: 0.9;
+      position: absolute;
+      color: var(--text-color);
+      right: -11rem;
+      bottom: -1rem;
+    }
+  }
+}

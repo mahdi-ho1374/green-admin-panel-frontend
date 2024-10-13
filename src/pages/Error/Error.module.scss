@@ -1,0 +1,78 @@
+@import "../../sass-styles/globals";
+@import "../../sass-styles/variables";
+@import "../../sass-styles/mixins";
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-color);
+
+  .page {
+    width: 100%;
+    margin-left: var(--sidebar-width);
+
+    @include breakpoint(lg) {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .main {
+      padding: 3rem 2rem 3rem 3rem;
+      height: calc(100vh - 8.5rem);
+
+      &--invisible-nav {
+        padding: 3rem 2rem;
+      }
+
+      @include breakpoint(lg) {
+        padding: 3rem 2rem;
+      }
+    }
+  }
+}
+
+.error {
+  &__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    max-width: 60rem;
+    height: auto;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    padding: 0 4rem 2rem 4rem;
+  }
+
+  &__top {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+
+    @include breakpoint(sm) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  &__status {
+    font-size: 6rem;
+    color: map-get($accent-colors, error);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: map-get($accent-colors, error);
+  }
+
+  &__message {
+    color: var(--text-color);
+    font-size: 2rem;
+  }
+}

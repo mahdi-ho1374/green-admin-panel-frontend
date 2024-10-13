@@ -1,0 +1,51 @@
+@import "../../sass-styles/variables";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  &__page {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    &:hover,
+    &:focus,
+    &--active {
+      background-color: var(--text-color);
+      color: var(--secondary-color);
+    }
+
+    &:target {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+
+    &--dots {
+      background-color: var(--secondary-color);
+      pointer-events: none;
+    }
+
+    &--previous,
+    &--next {
+      width: 8rem;
+      height: 3rem;
+    }
+  }
+}

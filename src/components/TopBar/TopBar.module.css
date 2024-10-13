@@ -1,0 +1,73 @@
+.header {
+  position: sticky;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  top: 0;
+  right: 0;
+  padding: 1.5rem 3rem;
+}
+@media (max-width: 62em) {
+  .header {
+    width: 100vw;
+    margin-left: 0;
+    padding: 1.5rem 2rem;
+  }
+}
+@media (max-width: 36em) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+}
+.header__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.header__icon {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+.header--withBackground {
+  background-color: var(--secondary-color);
+}
+.header__right {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 48em) {
+  .header__right {
+    gap: 1rem;
+  }
+}
+@media (max-width: 36em) {
+  .header__right {
+    gap: 0;
+  }
+}
+.header__profile {
+  display: flex;
+}
+.header__profile-img {
+  width: 5.5rem;
+  border-radius: 50%;
+  color: var(--primary-color);
+}
+.header__input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 25vw;
+  min-width: 25rem;
+}
+
+/*# sourceMappingURL=TopBar.module.css.map */

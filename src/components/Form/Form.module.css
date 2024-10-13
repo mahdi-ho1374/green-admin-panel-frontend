@@ -1,0 +1,114 @@
+.form {
+  background-color: var(--modal-color);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 7.1rem;
+  row-gap: 3rem;
+  column-gap: 3rem;
+  border-radius: 1rem;
+  max-height: 90vh;
+  padding: 2vw;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px rgba(74, 80, 70, 0.7), 0 0 10px rgba(25, 27, 23, 0.7);
+  min-width: 70vw;
+  max-width: 90vw;
+}
+.form__select, .form__search-input, .form__mixed-input {
+  grid-column: span 6;
+}
+.form__text-box {
+  grid-area: span 2/span 6;
+}
+.form__checkbox {
+  grid-column: span 2;
+}
+.form[id=add] .form__checkbox {
+  grid-column: span 4;
+}
+.form__checkbox:nth-of-type(2) {
+  justify-self: start;
+}
+.form__checkbox:nth-of-type(3) {
+  justify-self: center;
+}
+.form__checkbox:nth-of-type(4) {
+  justify-self: end;
+}
+.form__content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 3rem;
+  column-gap: 3rem;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.form__accordion[id=form__accordion] {
+  grid-column: span 12;
+  border: 2px solid var(--text-color);
+  border-radius: 1rem !important;
+  background-color: var(--modal-color);
+  min-height: 4rem;
+  align-self: self-start;
+  position: relative;
+  z-index: 5;
+}
+.form__accordion[id=form__accordion].form__accordion--expanded {
+  z-index: 10;
+}
+.form__accordion--disabled {
+  cursor: not-allowed;
+}
+.form__title[id=form__title] {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+.form__icon-container {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid var(--text-color);
+  background-color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+.form__icon {
+  color: var(--modal-color);
+  width: 3rem;
+  height: 3rem;
+}
+.form__icon path:last-child {
+  stroke-width: 1.7px;
+}
+.form__btns {
+  grid-column: span 12;
+  justify-self: end;
+  display: flex;
+  gap: 2rem;
+}
+.form__btn-container {
+  grid-column: span 12;
+  display: flex;
+  justify-content: flex-end;
+}
+.form__btn {
+  justify-self: end;
+  align-self: end;
+}
+.form__mega-prop {
+  grid-column: span 12;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.form__big-prop {
+  grid-column: span 12;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.form__btn--submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*# sourceMappingURL=Form.module.css.map */
