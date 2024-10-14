@@ -23,7 +23,7 @@ const ProductCard: FC<ProductCardProps> = ({ product, buttonsAndHandlers }) => {
       <div className={classes["productCard__top"]}>
         <img
           className={classes["productCard__profile"]}
-          src={`/plant-${Math.floor(Math.random() * 5) + 1}.jpg`}
+          src={`${process.env.REACT_APP_IMAGES_URL}/plant-${Math.floor(Math.random() * 5) + 1}.jpg`}
           alt="product"
         />
       </div>

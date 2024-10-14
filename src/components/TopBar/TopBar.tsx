@@ -122,7 +122,7 @@ const TopBar: FC = () => {
           />
           <figure className={classes.header__profile}>
             <img
-              src="/profile.jpg"
+              src={`${process.env.REACT_APP_IMAGES_URL}/profile.jpg`}
               alt="profile-image"
               className={classes["header__profile-img"]}
             />

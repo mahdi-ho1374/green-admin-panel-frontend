@@ -85,14 +85,14 @@ body {
 
 html.light-mode {
   body.background-mode {
-    background-image: url("/public/background-light.jpg");
+    background-image: url("https://cdn.jsdelivr.net/gh/mahdi-ho1374/green-admin-panel-frontend/images/background-light.jpg");
     background-size: cover;
   }
 }
 
 html.dark-mode {
   body.background-mode {
-    background-image: url("/public/background-dark.jpg");
+    background-image: url("https://cdn.jsdelivr.net/gh/mahdi-ho1374/green-admin-panel-frontend/images/background-dark.jpg");
     background-size: cover;
     background-blend-mode: overlay;
   }

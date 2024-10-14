@@ -5,6 +5,7 @@ import { BiSolidUser } from "react-icons/bi";
 import { FaSackDollar } from 'react-icons/fa6';
 import { AiOutlineNumber } from 'react-icons/ai';
 import { FaCheckCircle } from "react-icons/fa";
+import { RiShoppingCartFill } from "react-icons/ri";
 import { MdCancel } from "react-icons/md";
 import { MdLocalShipping } from "react-icons/md";
 import { ModalType } from '../../../types/ui';
@@ -24,7 +25,7 @@ const OrderCard:FC<OrderCardProps> = ({order,buttonsAndHandlers}) => {
           <div className={classes["orderCard__top"]}>
             <div
               className={classes["orderCard__profile"]}
-            >Order</div>
+            ><RiShoppingCartFill /></div>
           </div>
           <div className={classes["orderCard__props"]}>
             <div className={classes["orderCard__prop"]}>

@@ -24,7 +24,7 @@ const UserCard: FC<UserCardProps> = ({ user, buttonsAndHandlers }) => {
       <div className={classes["userCard__top"]}>
         <img
           className={classes["userCard__profile"]}
-          src="https://thispersondoesnotexist.com"
+          src={`${process.env.REACT_APP_IMAGES_URL}/chehreh${Math.floor(Math.random() * (8 - 3 + 1)) + 3}-min.jpeg`}
           alt="User-photo"
         />
         <div

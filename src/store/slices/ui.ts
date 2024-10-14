@@ -18,7 +18,7 @@ const initialState: UiState = {
   fetchStatus: {},
   connectionError: null,
   colors: {
-    primary: isDarkMode ? "#2f433c" : "#e5e4e2",
+    primary: isDarkMode ? "#2d483b" : "#e5e4e2",
     secondary: isDarkMode ? "#051f20" : "#dfdfd5",
     tertiary: isDarkMode ? "#051f20" : "#023020",
     modal: isDarkMode ? "#252824" : "#dfdfd5",
@@ -63,10 +63,10 @@ const uiSlice = createSlice({
       localStorage.setItem("isDarkMode", JSON.stringify(!previousValue));
       state.isDarkMode = !previousValue;
       if (!previousValue) {
-        state.colors.primary = "#2f433c";
+        state.colors.primary = "#2d483b";
         state.colors.secondary = "#051f20";
         state.colors.tertiary = "#051f20";
-        state.colors.modal = "#252824";
+        state.colors.modal = "#051f20";
         state.colors.supplement = "#f7fac3";
         state.colors.text = "#fbfddf";
       } else {
