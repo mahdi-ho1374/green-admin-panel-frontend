@@ -10,6 +10,7 @@ import { formActions } from "../../store/slices/form";
 import { ModalType } from "../../types/ui";
 import convertPathToString from "../../helpers/convertPathToString";
 import { uiActions } from "../../store/slices/ui";
+import { MdClose } from "react-icons/md";
 
 const Form: FC<FormProps> = ({
   id,
@@ -17,6 +18,7 @@ const Form: FC<FormProps> = ({
   onSubmit,
   rootPath,
   btnAndHandler,
+  closeModal
 }) => {
   const form = useAppSelector((state) => state.form);
   const fetchStatus = useAppSelector((state) => state.ui.fetchStatus);
@@ -135,6 +137,10 @@ const Form: FC<FormProps> = ({
         >
           {formatTitle(id)}
         </button>
+        <MdClose
+          className={classes["form__close-icon"]}
+          onClick={closeModal}
+        />
       </div>
     </form>
   );

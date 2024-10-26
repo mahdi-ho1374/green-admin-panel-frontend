@@ -35,6 +35,9 @@
   height: 3rem;
   cursor: pointer;
 }
+.header__icon, .header__icon:hover, .header__icon:focus, .header__icon:active {
+  -webkit-tap-highlight-color: transparent;
+}
 .header--withBackground {
   background-color: var(--secondary-color);
 }

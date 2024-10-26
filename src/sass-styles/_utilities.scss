@@ -25,6 +25,13 @@
   margin-top: 2rem;
   cursor: pointer;
 
+  &,
+  &:focus,
+  &:hover,
+  &:active {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   &--loading {
     width: 9rem;
     gap: 1rem;
@@ -150,6 +157,13 @@
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+  &,
+  &:focus,
+  &:hover,
+  &:active {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   &:hover,
   &:focus {
     transform: scale(0.95);
@@ -264,4 +278,13 @@
 
 .MuiAccordion-root.Mui-expanded {
   z-index: 10;
+}
+
+#tooltip-main {
+  &,
+  &:active,
+  &:hover,
+  &:focus {
+    -webkit-tap-highlight-color: transparent;
+  }
 }

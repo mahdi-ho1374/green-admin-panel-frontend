@@ -1,12 +1,12 @@
 import sweetAlert from "../ui/sweetAlert";
 import { SwalType } from "../../types/ui";
 
-export interface postDataErrorHandlerProps {
+export interface requestDataErrorHandlerProps {
   response: any;
   data: { error: string } | null;
 }
 
-export default ({ response, data }: postDataErrorHandlerProps) => {
+export default ({ response, data }: requestDataErrorHandlerProps) => {
   let title = "";
   if ((!response && !data) || response.status === 500) {
     sweetAlert({ type: SwalType.ERROR });

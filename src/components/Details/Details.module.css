@@ -10,7 +10,7 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: scroll;
 }
-@media (max-width: 62em) {
+@media (max-width: 48em) {
   .details {
     max-width: 100vw;
     max-height: 100vh;
@@ -25,7 +25,7 @@
   grid-auto-flow: dense;
   gap: 1rem;
 }
-@media (max-width: 62em) {
+@media (max-width: 48em) {
   .details__grid-system {
     grid-template-columns: 1fr;
   }
@@ -54,7 +54,7 @@
   border-radius: 1rem !important;
   min-height: 7rem;
 }
-@media (max-width: 62em) {
+@media (max-width: 48em) {
   .details__accordion[id=accordion] {
     grid-column: span 1;
   }
@@ -92,7 +92,10 @@
   cursor: pointer;
   display: none;
 }
-@media (max-width: 62em) {
+.details__close-icon, .details__close-icon:hover, .details__close-icon:focus, .details__close-icon:active {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 48em) {
   .details__close-icon {
     display: inline-block;
   }

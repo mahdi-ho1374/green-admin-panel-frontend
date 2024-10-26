@@ -30,6 +30,9 @@
   fill: var(--tertiary-color);
   cursor: pointer;
 }
+.nav__close-btn, .nav__close-btn:focus, .nav__close-btn:hover, .nav__close-btn:active {
+  -webkit-tap-highlight-color: transparent;
+}
 .nav--narrow {
   width: var(--sidebar-width);
   justify-content: center;
@@ -60,6 +63,9 @@
   position: relative;
   color: var(--text-color);
 }
+.nav__link, .nav__link:visited, .nav__link:link, .nav__link:hover, .nav__link:active, .nav__link:focus {
+  -webkit-tap-highlight-color: transparent;
+}
 .nav__link--just-icon {
   padding: 1.5rem 1rem;
 }
@@ -76,17 +82,17 @@
   transform: skew(-30deg);
   transition: all 0.3s;
 }
-.nav__link-dark:hover::after, .nav__link-dark:focus::after, .nav__link-dark--active::after {
+.nav__link-dark:hover::after, .nav__link-dark:focus-visible::after, .nav__link-dark--active::after {
   width: 250%;
 }
-.nav__link-light:hover, .nav__link-light:focus, .nav__link-light:active, .nav__link-light--active:active, .nav__link-light--active {
+.nav__link-light:hover, .nav__link-light:focus-visible, .nav__link-light:active, .nav__link-light--active:active, .nav__link-light--active {
   color: var(--supplement-color);
 }
 .nav__icon {
   color: var(--text-color);
   font-size: 1.8rem;
 }
-.nav__link-light:hover .nav__icon, .nav__link-light:focus .nav__icon, .nav__link-light--active .nav__icon {
+.nav__link-light:hover .nav__icon, .nav__link-light:focus-visible .nav__icon, .nav__link-light--active .nav__icon {
   color: var(--supplement-color);
 }
 

@@ -75,6 +75,9 @@
   opacity: 0;
   cursor: pointer;
 }
+.form-control__checkbox, .form-control__checkbox:hover, .form-control__checkbox:focus, .form-control__checkbox:active {
+  -webkit-tap-highlight-color: transparent;
+}
 .form-control__select--reverse {
   background-color: var(--tertiary-color);
   color: var(--white-color);
@@ -139,6 +142,9 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+}
+.form-control__select-main, .form-control__select-main:focus, .form-control__select-main:hover, .form-control__select-main:active {
+  -webkit-tap-highlight-color: transparent;
 }
 .form-control__content {
   position: absolute;
@@ -224,6 +230,12 @@
   align-items: center;
   cursor: pointer;
 }
+.form-control__btn, .form-control__btn:focus, .form-control__btn:hover, .form-control__btn:active {
+  -webkit-tap-highlight-color: transparent;
+}
+.form-control__btn:disabled {
+  cursor: not-allowed;
+}
 .form-control__btn--disabled {
   opacity: 0.5;
 }
@@ -272,6 +284,9 @@
   color: var(--text-color);
   margin-right: 1rem;
   cursor: pointer;
+}
+.form-control__label, .form-control__label:focus, .form-control__label:hover, .form-control__label:active {
+  -webkit-tap-highlight-color: transparent;
 }
 .form-control__label--disabled {
   cursor: not-allowed;

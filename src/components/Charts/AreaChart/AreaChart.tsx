@@ -62,6 +62,8 @@ const AreaChart: FC<AreaChartProps> = ({
         <Tooltip
           wrapperClassName={classes["chart__tooltip-wrapper"]}
           labelClassName={classes["chart__tooltip-label"]}
+          contentStyle={{ color: uiColors.text }}
+          itemStyle={{ color: uiColors.text }}
           cursor={false}
         />
         <Legend

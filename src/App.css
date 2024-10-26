@@ -35,14 +35,14 @@ html {
 
 .dark-mode {
   --primary-color: #2d483b;
-  --secondary-color: #051f20;
-  --tertiary-color: #051f20;
+  --secondary-color: #082623;
+  --tertiary-color: #082623;
   --supplement-color: #f7fac3;
   --text-color: #fafcda;
   --white-color: #fafcda;
-  --modal-color: #051f20;
-  --tertiary-darker-color: #041617;
-  --scroll-thumb-active-color: #020e0e;
+  --modal-color: #082623;
+  --tertiary-darker-color: #051f20;
+  --scroll-thumb-active-color: #051f20;
   --scroll-track-color: #1e2b27;
   --even-td-color: #04191a;
   --card-text-color: #f7fac3;
@@ -95,9 +95,11 @@ html.dark-mode body.background-mode {
 a,
 a:visited,
 a:link,
+a:hover,
 a:focus,
 a:active {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul {
@@ -246,6 +248,9 @@ button {
   margin-top: 2rem;
   cursor: pointer;
 }
+.modal__btn, .modal__btn:focus, .modal__btn:hover, .modal__btn:active {
+  -webkit-tap-highlight-color: transparent;
+}
 .modal__btn--loading {
   width: 9rem;
   gap: 1rem;
@@ -370,6 +375,9 @@ button {
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.add-btn, .add-btn:focus, .add-btn:hover, .add-btn:active {
+  -webkit-tap-highlight-color: transparent;
+}
 .add-btn:hover, .add-btn:focus {
   transform: scale(0.95);
 }
@@ -474,6 +482,10 @@ button {
 
 .MuiAccordion-root.Mui-expanded {
   z-index: 10;
+}
+
+#tooltip-main, #tooltip-main:active, #tooltip-main:hover, #tooltip-main:focus {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /*# sourceMappingURL=App.css.map */

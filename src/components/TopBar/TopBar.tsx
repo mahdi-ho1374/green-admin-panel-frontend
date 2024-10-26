@@ -61,6 +61,7 @@ const TopBar: FC = () => {
 
   const menuVisibilityHandler = () => dispatch(uiActions.toggleNavVisibility());
   const menuButtonColor = isDarkMode ? uiColors.primary : uiColors.tertiary;
+  const searchDisabled = String(location.pathname).includes("sales") || String(location.pathname).includes("dashboard");
 
   const navWidthSwitch = (
     <Switch
@@ -78,6 +79,7 @@ const TopBar: FC = () => {
         onSearch={searchHandler}
         path={[...path, "search"]}
         text={text}
+        disabled={searchDisabled}
         icon={true}
         autoComplete={true}
       />

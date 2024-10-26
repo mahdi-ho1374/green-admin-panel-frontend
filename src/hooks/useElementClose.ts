@@ -1,28 +1,23 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "./useReduxHooks";
-import { formActions } from "../store/slices/form";
-import { Path } from "../types/form";
 
 interface UseFormFieldCloseProps {
-  path: Path;
+  onClose: () => void;
   exception: string;
   isExpanded: boolean;
 }
 
-const useFormFieldClose = ({
+const useElementClose = ({
   isExpanded,
   exception,
-  path,
+  onClose,
 }: UseFormFieldCloseProps) => {
-  const dispatch = useAppDispatch();
-
   useEffect(() => {
     const closeTooltip: EventListener = (e) => {
       if (
         (isExpanded && !(e.target as HTMLElement).closest(exception)) ||
         (isExpanded && e instanceof KeyboardEvent && e.key === "Escape")
       ) {
-        dispatch(formActions.setCollapsed(path));
+        onClose();
       }
     };
 
@@ -36,4 +31,4 @@ const useFormFieldClose = ({
   }, [isExpanded]);
 };
 
-export default useFormFieldClose;
+export default useElementClose;

@@ -18,6 +18,13 @@
     cursor: pointer;
     z-index: 10000;
 
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     @include breakpoint(sm) {
       width: 3rem;
       height: 3rem;

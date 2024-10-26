@@ -9,7 +9,7 @@ import classes from "../FormFields.module.css";
 import { useAppSelector, useAppDispatch } from "../../../hooks/useReduxHooks";
 import formatTitle from "../../../helpers/ui/formatTitle";
 import { MdExpandMore } from "react-icons/md";
-import useFormFieldClose from "../../../hooks/useFormFieldClose";
+import useElementClose from "../../../hooks/useElementClose";
 import convertPathToString from "../../../helpers/convertPathToString";
 import _ from "lodash";
 
@@ -46,7 +46,11 @@ const Select: FC<SelectProps> = ({
         path.length > 1 ? path[path.length - 2] : ""
       }`;
 
-  useFormFieldClose({ path, isExpanded, exception: `#${selectId}` });
+  useElementClose({
+    onClose: () => dispatch(formActions.setCollapsed(path)),
+    isExpanded,
+    exception: `#${selectId}`,
+  });
 
   const valueChangeHandler = (e: MouseEvent<HTMLDivElement>) => {
     const value =

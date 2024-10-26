@@ -83,7 +83,7 @@ export default ({ section, data, isForTable }: CreateDataProps) => {
     case "product": {
       return (data as Product[]).map(
         ({ _id, name, price, quantity, salesNumber }, index) => {
-          const revenue = price * salesNumber;
+          const revenue = parseFloat((price * salesNumber).toFixed(2));
           const tableProduct = {
             _id,
             name,

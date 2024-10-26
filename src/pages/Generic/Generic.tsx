@@ -2,7 +2,11 @@ import classes from "./Generic.module.css";
 import { useSearchParams, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks/useReduxHooks";
 import { UserFormKeys } from "../../types/user";
-import { updateData, addData } from "../../store/actions/generic";
+import {
+  updateData,
+  addData,
+  deleteDocument,
+} from "../../store/actions/generic";
 import { ModalType } from "../../types/ui";
 import createFormData from "../../helpers/form/createData";
 import sortObjectKeys from "../../helpers/ui/sortObjectKeys";
@@ -27,6 +31,7 @@ import PieChartProvider from "../../components/ChartProvider/PieChartProvider";
 import MixedChartProvider from "../../components/ChartProvider/MixedChartProvider";
 import BoxError from "../../components/Error/BoxError";
 import filterSortSearchData from "../../helpers/table/filterSortSearchData";
+import useElementClose from "../../hooks/useElementClose";
 
 const Generic = () => {
   const location = useLocation();
@@ -45,7 +50,7 @@ const Generic = () => {
   const view: View = useAppSelector(
     (state) => state.form?.[genericPage]?.view?.value
   );
-  const { data, perPage, dataChanged } = useAppSelector(
+  const { data, perPage, dataChanged, selectedDocumentId } = useAppSelector(
     (state) => state.generic?.[section]
   );
   const fetchChartDataStatus = fetchStatus.fetchChartData;
@@ -68,6 +73,13 @@ const Generic = () => {
     searchData: filteredSortedSearchData,
     params,
   });
+
+  useElementClose({
+    isExpanded: openedTooltipId === view,
+    exception: "#tooltip-main",
+    onClose: () => dispatch(uiActions.setOpenedTooltipId("")),
+  });
+
   const lastPage =
     Math.ceil((filteredSortedSearchData?.length || 0) / perPage) || undefined;
 
@@ -97,6 +109,10 @@ const Generic = () => {
     return modalType === ModalType.EDIT
       ? dispatch(updateData(section, document))
       : dispatch(addData(section, document));
+  };
+
+  const deleteDocumentHandler = () => {
+    dispatch(deleteDocument(selectedDocumentId, section));
   };
 
   const searchPage =
@@ -234,6 +250,7 @@ const Generic = () => {
       )}
       {view !== "chart" && (
         <DataViewProvider
+          onDelete={deleteDocumentHandler}
           section={section}
           tableData={tableData}
           cardData={cardData}

@@ -18,7 +18,7 @@ import { Comment } from "../../types/comment";
 import createUrlPath from "../../helpers/url/createUrlPath";
 import convertNumberToMonth from "../../helpers/chart/convertNumberToMonth";
 import sortChartData from "../../helpers/chart/sortChartData";
-import postDataErrorHandler from "../../helpers/error/postDataErrorHandler";
+import requestDataErrorHandler from "../../helpers/error/requestDataErrorHandler";
 import { uiActions } from "../slices/ui";
 import connectionErrorHandler from "../../helpers/error/connectionErrorHandler";
 import _ from "lodash";
@@ -164,7 +164,7 @@ export const addData = (section: GenericKey, document: GenericDocument) => {
       const data = await response.json();
 
       if (!response.ok) {
-        postDataErrorHandler({ response, data });
+        requestDataErrorHandler({ response, data });
         dispatch(uiActions.setFetchStatus({ key: "addData", status: "error" }));
         return null;
       } else {
@@ -184,7 +184,7 @@ export const addData = (section: GenericKey, document: GenericDocument) => {
 
       return addedDocument;
     } catch (err) {
-      postDataErrorHandler({ response: null, data: null });
+      requestDataErrorHandler({ response: null, data: null });
       dispatch(uiActions.setFetchStatus({ key: "addData", status: "error" }));
     }
   };
@@ -206,7 +206,7 @@ export const updateData = (section: GenericKey, document: GenericDocument) => {
       );
       const data = await response.json();
       if (!response.ok) {
-        postDataErrorHandler({ response, data });
+        requestDataErrorHandler({ response, data });
         dispatch(
           uiActions.setFetchStatus({ key: "updateData", status: "error" })
         );
@@ -227,7 +227,7 @@ export const updateData = (section: GenericKey, document: GenericDocument) => {
       const updatedDocument = await putRequest();
       return updatedDocument;
     } catch (err) {
-      postDataErrorHandler({ response: null, data: null });
+      requestDataErrorHandler({ response: null, data: null });
       dispatch(
         uiActions.setFetchStatus({ key: "updateData", status: "error" })
       );
@@ -308,5 +308,43 @@ export const fetchMinMax = (genericKey: GenericKey, prop: string) => {
         })
       );
     } catch (err) {}
+  };
+};
+
+export const deleteDocument = (documentId: string, section: GenericKey) => {
+  return async (dispatch: Dispatch) => {
+    const deleteRequest = async () => {
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/admin/${section}/delete/${documentId}`,
+        { method: "DELETE" }
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        requestDataErrorHandler({ response, data });
+        dispatch(
+          uiActions.setFetchStatus({ key: "deleteData", status: "error" })
+        );
+        return null;
+      } else {
+        dispatch(
+          uiActions.setFetchStatus({ key: "deleteData", status: "success" })
+        );
+        dispatch(genericActions.toggleDataChanged(section));
+        sweetAlert({
+          type: SwalType.SUCCESS,
+          title: `${formatTitle(section)} deleted`,
+        });
+        return data;
+      }
+    };
+    try {
+      const result = await deleteRequest();
+      return result;
+    } catch (err) {
+      requestDataErrorHandler({ response: null, data: null });
+      dispatch(
+        uiActions.setFetchStatus({ key: "deleteData", status: "error" })
+      );
+    }
   };
 };

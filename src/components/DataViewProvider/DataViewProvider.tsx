@@ -43,6 +43,7 @@ interface DataViewProviderProps {
   view: View;
   lastSearchPage?: number;
   currentSearchPage?: number;
+  onDelete: () => void;
 }
 
 const DataViewProvider: FC<DataViewProviderProps> = ({
@@ -54,6 +55,7 @@ const DataViewProvider: FC<DataViewProviderProps> = ({
   priceFields,
   onEdit,
   onSubmit,
+  onDelete,
   view,
   lastSearchPage,
   currentSearchPage,
@@ -206,7 +208,7 @@ const DataViewProvider: FC<DataViewProviderProps> = ({
     onReload: () => navigate(currentPath, { replace: true }),
   };
 
-  const closeModal = () => {
+  const closeModalTasks = () => {
     dispatch(genericActions.selectDocumentId({ id: "", section }));
     if ([ModalType.ADD, ModalType.EDIT].includes(modalType as ModalType)) {
       dispatch(formActions.cleanForm(section));
@@ -222,14 +224,13 @@ const DataViewProvider: FC<DataViewProviderProps> = ({
   return (
     <div className={classes["dataViewProvider"]}>
       {showModal && (
-        <Modal id={modalType} genericKey={section} closeModalFunc={closeModal}>
-          <>
-            {modalType === ModalType.DETAILS && (
+        <Modal id={modalType} genericKey={section} closeModalFunc={closeModalTasks}>
+            {modalType === ModalType.DETAILS ? (
               <Details fullData={selectedDocument} id={modalType} />
-            )}
-            {modalType === ModalType.DELETE && <Delete id={modalType} />}
-            {[ModalType.ADD, ModalType.EDIT].includes(modalType as ModalType) &&
-              formData && (
+            ) :
+            modalType === ModalType.DELETE ? <Delete id={modalType} onDelete={onDelete} /> : 
+            [ModalType.ADD, ModalType.EDIT].includes(modalType as ModalType) &&
+              formData ? (
                 <Form
                   id={modalType}
                   fields={formData as Fields}
@@ -237,8 +238,7 @@ const DataViewProvider: FC<DataViewProviderProps> = ({
                   rootPath={section}
                   btnAndHandler={btnAndHandler}
                 />
-              )}
-          </>
+              ) : <></>}
         </Modal>
       )}
       {view === "main" &&

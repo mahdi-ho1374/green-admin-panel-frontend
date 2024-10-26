@@ -91,6 +91,13 @@
     z-index: 2;
     opacity: 0;
     cursor: pointer;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      -webkit-tap-highlight-color: transparent;
+    }
   }
 
   &__select--reverse {
@@ -169,6 +176,13 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+
+    &,
+    &:focus,
+    &:hover,
+    &:active {
+      -webkit-tap-highlight-color: transparent;
+    }
   }
 
   &__content {
@@ -273,6 +287,17 @@
     align-items: center;
     cursor: pointer;
 
+    &,
+    &:focus,
+    &:hover,
+    &:active {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
     &--disabled {
       opacity: 0.5;
     }
@@ -332,6 +357,13 @@
     color: var(--text-color);
     margin-right: 1rem;
     cursor: pointer;
+
+    &,
+    &:focus,
+    &:hover,
+    &:active {
+      -webkit-tap-highlight-color: transparent;
+    }
 
     &--disabled {
       cursor: not-allowed;

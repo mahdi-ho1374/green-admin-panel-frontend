@@ -22,7 +22,7 @@
   pointer-events: none;
   opacity: 0.5;
 }
-.pagination__page:hover, .pagination__page:focus, .pagination__page--active {
+.pagination__page:hover, .pagination__page:focus-visible, .pagination__page--active {
   background-color: var(--text-color);
   color: var(--secondary-color);
 }

@@ -15,6 +15,9 @@
   cursor: pointer;
   z-index: 10000;
 }
+.container .scrollUp, .container .scrollUp:hover, .container .scrollUp:focus, .container .scrollUp:active {
+  -webkit-tap-highlight-color: transparent;
+}
 @media (max-width: 36em) {
   .container .scrollUp {
     width: 3rem;

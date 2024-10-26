@@ -31,6 +31,13 @@
     z-index: 100000;
     fill: var(--tertiary-color);
     cursor: pointer;
+
+    &,
+    &:focus,
+    &:hover,
+    &:active {
+      -webkit-tap-highlight-color: transparent;
+    }
   }
 
   &--narrow {
@@ -67,6 +74,15 @@
     position: relative;
     color: var(--text-color);
 
+    &,
+    &:visited,
+    &:link,
+    &:hover,
+    &:active,
+    &:focus {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     &--just-icon {
       padding: 1.5rem 1rem;
     }
@@ -86,7 +102,7 @@
     }
 
     &-dark:hover,
-    &-dark:focus,
+    &-dark:focus-visible,
     &-dark--active {
       &::after {
         width: 250%;
@@ -94,7 +110,7 @@
     }
 
     &-light:hover,
-    &-light:focus,
+    &-light:focus-visible,
     &-light:active,
     &-light--active:active,
     &-light--active {
@@ -109,7 +125,7 @@
   }
 
   &__link-light:hover,
-  &__link-light:focus,
+  &__link-light:focus-visible,
   &__link-light--active {
     .nav__icon {
       color: var(--supplement-color);

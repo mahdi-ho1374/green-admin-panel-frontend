@@ -22,12 +22,10 @@ const Details: FC<DetailsProps> = ({ fullData, id, closeModal }) => {
         const title = formatTitle(key);
         return <DetailItem key={key} title={title} value={fullData[key]} />;
       })}
-      {
         <MdClose
           className={classes["details__close-icon"]}
           onClick={closeModal}
         />
-      }
     </div>
   );
 };

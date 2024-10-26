@@ -9,8 +9,6 @@ import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 import { useAppDispatch, useAppSelector } from "../../hooks/useReduxHooks";
 import { uiActions } from "../../store/slices/ui";
-import { formActions } from "../../store/slices/form";
-import { genericActions } from "../../store/slices/generi";
 import { useLocation } from "react-router-dom";
 import { GenericKey } from "../../types/generic";
 
@@ -23,14 +21,7 @@ interface modalProps {
 
 const Modal: FC<modalProps> = (props) => {
   const id = props.id;
-  const genericKey = props.genericKey;
   const dispatch = useAppDispatch();
-  const location = useLocation();
-  const section = location.pathname
-    .split("/")[1]
-    .split("")
-    .slice(0, -1)
-    .join("");
 
   useEffect(() => {
     const exitModal = (e: KeyboardEvent): void => {
@@ -59,12 +50,10 @@ const Modal: FC<modalProps> = (props) => {
   };
 
   const renderChildren = () => {
-    return React.Children.map(props.children, (child) => {
-      return React.cloneElement(child as ReactElement, {
-        closeModal: closeModal,
+      return React.cloneElement(props.children, {
+        closeModal,
       });
-    });
-  };
+  }
 
   return ReactDOM.createPortal(
     <div className={classes.modal} onClick={closeByClickingOutside}>

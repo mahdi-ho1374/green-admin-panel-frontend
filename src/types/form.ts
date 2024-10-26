@@ -122,6 +122,7 @@ export interface FormProps {
   id: string;
   fields: Fields;
   onSubmit: (data: any) => void;
+  closeModal?: () => {};
   rootPath: string;
   btnAndHandler?: {title: string,handler: (e: MouseEvent,fields: Fields) => void;};
 }

@@ -37,14 +37,14 @@ html {
 
 .dark-mode {
   --primary-color: #2d483b;
-  --secondary-color: #051f20;
-  --tertiary-color: #051f20;
+  --secondary-color: #082623;
+  --tertiary-color: #082623;
   --supplement-color: #f7fac3;
   --text-color: #fafcda;
   --white-color: #fafcda;
-  --modal-color: #051f20;
-  --tertiary-darker-color: #041617;
-  --scroll-thumb-active-color: #020e0e;
+  --modal-color: #082623;
+  --tertiary-darker-color: #051f20;
+  --scroll-thumb-active-color: #051f20;
   --scroll-track-color: #1e2b27;
   --even-td-color: #04191a;
   --card-text-color: #f7fac3;
@@ -101,9 +101,11 @@ html.dark-mode {
 a,
 a:visited,
 a:link,
+a:hover,
 a:focus,
 a:active {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul {

@@ -20,7 +20,7 @@ import formValidators from "../../../helpers/form/validators";
 import convertDecimalToNumber from "../../../helpers/convertDecimalToNumber";
 import { FaRegFaceFrown } from "react-icons/fa6";
 import { GrSearch } from "react-icons/gr";
-import useFormFieldClose from "../../../hooks/useFormFieldClose";
+import useElementClose from "../../../hooks/useElementClose";
 import convertPathToString from "../../../helpers/convertPathToString";
 import _ from "lodash";
 
@@ -80,8 +80,8 @@ const SearchInput: FC<SearchInputProps> = ({
 
   const id = `${title}${path.length > 1 ? path[path.length - 2] : ""}`;
 
-  useFormFieldClose({
-    path,
+  useElementClose({
+    onClose: () => dispatch(formActions.setCollapsed(path)),
     isExpanded: isExpanded || false,
     exception: `#${id}`,
   });
@@ -297,6 +297,7 @@ const SearchInput: FC<SearchInputProps> = ({
           <button
             className={`${classes["form-control__btn"]} ${classes["form-control__btn--search"]}`}
             onClick={() => onSearch!(value as string)}
+            disabled={disabled ? true : false}
           >
             <GrSearch
               className={`${classes["form-control__icon"]} ${classes["form-control__icon--search"]}`}
