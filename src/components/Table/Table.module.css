@@ -82,8 +82,17 @@
   position: absolute;
   bottom: 0.2rem;
   right: -2rem;
-  opacity: 0;
   transition: all 0.25s;
+}
+@media (pointer: fine) {
+  .table__dot-btn {
+    opacity: 0;
+  }
+}
+@media (pointer: coarse) {
+  .table__dot-btn {
+    opacity: 1;
+  }
 }
 .table__select {
   width: 12rem;
@@ -235,18 +244,19 @@
 .table thead tr th,
 .table thead tr th:hover,
 .table thead tr th:focus,
-.table thead tr th:target,
 .table thead tr th:active,
 .table tbody tr th,
 .table tbody tr th:hover,
 .table tbody tr th:focus,
-.table tbody tr th:target,
 .table tbody tr th:active {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
-.table thead tr th:hover .table__dot-btn,
-.table tbody tr th:hover .table__dot-btn {
-  opacity: 1;
+@media (pointer: fine) {
+  .table thead tr th:hover .table__dot-btn,
+  .table tbody tr th:hover .table__dot-btn {
+    opacity: 1;
+  }
 }
 .table thead tr td,
 .table tbody tr td {

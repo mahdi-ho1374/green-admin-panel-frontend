@@ -18,6 +18,8 @@
     display: flex;
     gap: 2rem 2rem;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
     &--user {
       gap: 8rem 2rem;

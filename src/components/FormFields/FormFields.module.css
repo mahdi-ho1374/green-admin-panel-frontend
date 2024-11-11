@@ -84,7 +84,7 @@
 }
 .form-control__input:disabled {
   opacity: 0.5;
-  cursor: not-allowed;
+  cursor: default;
 }
 .form-control__input--expanded {
   border-bottom-left-radius: 0;

@@ -247,6 +247,13 @@
     border-radius: 1rem;
     cursor: pointer;
 
+    &,
+    &:focus,
+    &:active,
+    &:hover {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;

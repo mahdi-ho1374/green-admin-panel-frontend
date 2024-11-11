@@ -62,7 +62,6 @@ const Select: FC<SelectProps> = ({
   };
 
   const expandedToggleHandler = (e: MouseEvent) => {
-    e.stopPropagation();
     e.preventDefault();
     dispatch(formActions.toggleExpanded(path));
   };
@@ -113,7 +112,6 @@ const Select: FC<SelectProps> = ({
             className={`${classes["form-control__btn"]} ${
               classes["form-control__btn--select"]
             }  ${reverseColor ? classes["form-control__btn--reverse"] : ""}`}
-            onClick={expandedToggleHandler}
           >
             <MdExpandMore
               className={`${classes["form-control__icon"]} ${

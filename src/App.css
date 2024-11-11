@@ -45,7 +45,6 @@ html {
   --scroll-thumb-active-color: #051f20;
   --scroll-track-color: #1e2b27;
   --even-td-color: #04191a;
-  --card-text-color: #f7fac3;
   --options-hover-color: #083436;
 }
 
@@ -61,7 +60,6 @@ html {
   --scroll-thumb-active-color: #172719;
   --scroll-track-color: #d2d0cc;
   --even-td-color: #d9d7d5;
-  --card-text-color: #023020;
   --options-hover-color: #023020;
 }
 
@@ -456,6 +454,9 @@ button {
   color: var(--white-color);
   border-radius: 1rem;
   cursor: pointer;
+}
+.actions__btn, .actions__btn:focus, .actions__btn:active, .actions__btn:hover {
+  -webkit-tap-highlight-color: transparent;
 }
 .actions__btn:disabled {
   opacity: 0.5;

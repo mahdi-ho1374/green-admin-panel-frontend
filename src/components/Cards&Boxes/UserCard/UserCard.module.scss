@@ -7,7 +7,7 @@
   gap: 3rem;
   flex: 1;
   min-width: 28rem;
-  max-width: 40rem;
+  max-width: 32rem;
   border-radius: 1rem;
   padding: 2rem 2rem;
   position: relative;
@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: var(--card-text-color);
+    color: var(--text-color);
 
     &--column-1 {
       grid-column: span 1;

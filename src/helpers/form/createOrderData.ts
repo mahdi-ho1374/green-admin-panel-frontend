@@ -8,11 +8,13 @@ import { BtnType } from "../../types/ui";
 import { FormFieldType } from "../../types/form";
 import { FormFieldProps } from "../../types/form";
 import type { Order } from "../../types/order";
+import _ from "lodash";
 
 export interface CreateItemFormDataProps {
-  itemsFormField: { [key: string]: FormFieldProps[][] };
+  itemFormField: FormFieldProps[];
   products?: Product[];
   status?: Status;
+  index: number;
 }
 
 type OrderParams = {
@@ -29,16 +31,14 @@ type FormDataParams = {
 
 type CreateOrderFormDataProps = OrderParams | FormDataParams;
 
-const createItemsFormData = ({
-  itemsFormField,
+const createItemFormData = ({
+  itemFormField,
   products,
   status,
+  index,
 }: CreateItemFormDataProps) => {
-  const itemsFormFieldValue = (
-    itemsFormField as unknown as { [key: string]: FormFieldProps[][] }
-  ).items.map((item, index) => {
     let currentProduct: null | Product = null;
-    item.map((prop) => {
+    itemFormField.map((prop) => {
       prop.url = `${process.env.REACT_APP_BACKEND_URL}/admin/products/search/byName/${index}`;
       prop.text = "product";
       if (prop.title === "name") {
@@ -61,11 +61,9 @@ const createItemsFormData = ({
       }
       return prop;
     });
-    !item.some((field) => "btn" in field) &&
-      (item as FormProperties[]).push({ btn: BtnType.DELETE });
-    return item;
-  }) as FormFieldProps[][];
-  return { items: itemsFormFieldValue };
+    !itemFormField.some((field) => "btn" in field) &&
+      (itemFormField as FormProperties[]).push({ btn: BtnType.DELETE });
+    return itemFormField;
 };
 
 export default async ({
@@ -79,15 +77,12 @@ export default async ({
     let itemsFormField: { [key: string]: FormFieldProps[][] } = formData.find(
       (item) => "items" in item
     ) as { [key: string]: FormFieldProps[][] };
-    itemsFormField["items"].push(
-      createFormData(
-        ["_id", "name", "price", "amount"],
-        true
-      ) as FormFieldProps[]
-    );
-
-    createItemsFormData({ itemsFormField });
-
+    const newItemFormField =  
+    createItemFormData({ itemFormField: createFormData(
+      ["_id", "name", "price", "amount"],
+      true
+    ) as FormFieldProps[],index: itemsFormField.items.length });
+    itemsFormField.items.push(newItemFormField);
     return formData as Fields;
   }
   let products: Product[] | null = null;
@@ -125,13 +120,13 @@ export default async ({
           ).map((value: Record<string, any>) => {
             return createFormData(value);
           });
-          createItemsFormData({
-            itemsFormField: item as unknown as {
-              [key: string]: FormFieldProps[][];
-            },
+          (item as unknown as { [key: string]: FormFieldProps[][] }).items.forEach((itemFormField,index) => 
+            createItemFormData({
+            itemFormField: itemFormField as unknown as FormFieldProps[],
             products: products!,
             status: status!,
-          });
+            index
+          }));
           delete item.initialValue;
           delete (item as unknown as { [key: string]: FormFieldProps[][] })
             .title;

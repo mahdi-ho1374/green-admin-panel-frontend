@@ -10,20 +10,13 @@ import { uiActions } from "../store/slices/ui";
 import { IoArrowUpCircleOutline } from "react-icons/io5";
 import useTheme from "../hooks/useTheme";
 import useGeneralStyles from "../hooks/useGeneralStyles";
-import Swal from "sweetalert2";
-import CheckBox from "../components/FormFields/CheckBox/CheckBox";
-import Modal from "../components/Modal/Modal";
 
 const Index: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isNavVisible, showModal } = useAppSelector((state) => state.ui);
+  const { isNavVisible } = useAppSelector((state) => state.ui);
   const muiTheme = useTheme();
   const dispatch = useAppDispatch();
-
-  const restrictedAlertShowLS = JSON.parse(
-    localStorage.getItem("restrictedAlert") || "true"
-  );
   useGeneralStyles("page");
 
   useEffect(() => {

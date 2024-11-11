@@ -9,7 +9,7 @@
   @include breakpoint(sm) {
     height: 100%;
   }
-  
+
   &__container {
     &[id="table"] {
       max-width: 100%;
@@ -94,8 +94,14 @@
     position: absolute;
     bottom: 0.2rem;
     right: -2rem;
-    opacity: 0;
     transition: all 0.25s;
+
+    @media(pointer: fine) {
+      opacity: 0;
+    }
+    @media(pointer: coarse) {
+      opacity: 1;
+    }
   }
 
   &__select {
@@ -255,14 +261,15 @@
       th,
       th:hover,
       th:focus,
-      th:target,
       th:active {
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
       }
-
-      th:hover {
-        .table__dot-btn {
-          opacity: 1;
+      @media (pointer: fine) {
+        th:hover {
+          .table__dot-btn {
+            opacity: 1;
+          }
         }
       }
 
