@@ -42,6 +42,8 @@ const uiSlice = createSlice({
       state.modalType = action.payload !== undefined ? action.payload : "";
     },
     setOpenedTooltipId(state, action: PayloadAction<string>) {
+      console.log("grtr");
+      console.log(action.payload);
       state.openedTooltipId = action.payload;
     },
     setFetchStatus(

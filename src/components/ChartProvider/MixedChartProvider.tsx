@@ -20,6 +20,7 @@ import useTooltipClose from "../../hooks/useTooltipClose";
 import formatTitle, {
   formatObjectProperties,
 } from "../../helpers/ui/formatTitle";
+import useElementClose from "../../hooks/useElementClose";
 
 const createPath = (starter: string[], props: string[]) => {
   const pathObject: Record<string, any> = {};
@@ -90,7 +91,12 @@ const MixedChartProvider: FC<MixedChartProviderProps> = ({
     initialPath,
   });
 
-  useTooltipClose();
+  // useTooltipClose();
+  useElementClose({
+    isExpanded: openedTooltipId ? true : false,
+    exception: ".info",
+    onClose: () => dispatch(uiActions.setOpenedTooltipId("")),
+  });
 
   const hasYear = "year" in data[0];
   const hasMonth = "month" in data[0];
@@ -217,6 +223,9 @@ const MixedChartProvider: FC<MixedChartProviderProps> = ({
   chartData.xDataKey = chartData.xDataKey
     ? formatTitle(chartData.xDataKey)
     : "";
+
+  console.log(selectsProps);
+  console.log(selectInfos);
 
   return (
     <div

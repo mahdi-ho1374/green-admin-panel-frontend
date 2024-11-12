@@ -63,7 +63,7 @@ const Generic = () => {
     section,
     params,
   });
-  useTooltipClose();
+  // useTooltipClose();
   useViewManagement({
     section,
     view,
@@ -76,7 +76,7 @@ const Generic = () => {
 
   useElementClose({
     isExpanded: openedTooltipId === view,
-    exception: "#tooltip-main",
+    exception: ".info",
     onClose: () => dispatch(uiActions.setOpenedTooltipId("")),
   });
 
@@ -166,6 +166,8 @@ const Generic = () => {
     onReload: () =>
       navigate(`${location.pathname}${location.search}`, { replace: true }),
   };
+
+  console.log(view);
 
   return (
     <section

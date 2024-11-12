@@ -28,7 +28,7 @@ const Tooltip = styled(
     <MuiTooltip
       {...props}
       classes={{ popper: className }}
-      open={props.open ?? undefined}
+      open={props.open}
     />
   )
 )(({ theme, color, backgroundColor, fontSize, width, height, marginBottom }) => {

@@ -1,5 +1,5 @@
 export default {
-  chartType:
+  view:
     'Select "Chart Type" to choose how your data is displayed: "Area" for filled areas, "Line" for lines, or "Bar" for vertical bars. Pick the one that best fits your data and analysis needs.',
   timeFrame:
     'Choose "X-Axis" to control whether your data is displayed with "Years" or "Months" on the horizontal axis. Select "Years" for a broader view or "Months" for a more detailed view of your data over time.',

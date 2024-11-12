@@ -485,7 +485,7 @@ button {
   z-index: 10;
 }
 
-#tooltip-main, #tooltip-main:active, #tooltip-main:hover, #tooltip-main:focus {
+.info, .info:active, .info:hover, .info:focus {
   -webkit-tap-highlight-color: transparent;
 }
 
